@@ -28,6 +28,10 @@ contract VerifySig {
         return recover(ethSignedMessageHash, _sig) == _signer;
     }
 
+    /**
+     * this returns the hash of the given message 
+     * @param _message This the message that needs to be hashed
+     */
     function getMessageHash(
         string memory _message
     ) public pure returns (bytes32) {
@@ -55,7 +59,7 @@ contract VerifySig {
     }
 
     /**
-     *
+     * It recovers the address of the signer 
      * @param ethSignedMessageHash The actual signed message offchain
      * @param sig the signature that is sent from offchain
      */
@@ -99,7 +103,8 @@ contract VerifySig {
             // value of r that is stored in memory  so we add 32+32=64
             s := mload(add(_sig, 64))
 
-
+            //  v is always at the end of the signature so we don't need to do any addition here
+            // 
             v := byte(0, mload(add(_sig, 96)))
 
         }

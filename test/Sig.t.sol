@@ -33,4 +33,15 @@ contract TestSign is Test {
 
         // bool x = verificationContract.verify(pubkey,"hello world");
     }
+
+    function testSignatureVerifyContract() public {
+        uint256 privateKey = 123;
+        address pubkey = vm.addr(privateKey);
+
+        bytes32 messagehash = keccak256("hello world");
+
+        bytes32 ethsignedmessage = verificationContract.getEthSignedMessageHash(messagehash);
+
+        
+    }
 }
