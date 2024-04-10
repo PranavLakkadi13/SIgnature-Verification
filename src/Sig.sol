@@ -10,13 +10,13 @@ pragma solidity ^0.8.18;
 contract VerifySig {
     /**
      * This is the function that is used to verify the signature
-     * @param _signer the address of the signer
-     * @param _message the message
-     * @param _sig the signature
+     * @param _signer the address of the signer (public key)
+     * @param _message the message (plain text)
+     * @param _sig the signature (hash(msg + private key))
      * @return true if the signature is valid, false otherwise
      */
     function verify(
-        address _signer,
+        address _signer, 
         string memory _message,
         bytes memory _sig
     ) public pure returns (bool) {

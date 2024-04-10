@@ -22,6 +22,7 @@ contract TestSign is Test {
     function testSignature() public {
         uint256 privateKey = 123;
         address pubkey = vm.addr(privateKey);
+        address z = address(52637);
 
         bytes32 messagehash = keccak256("hello world");
 
@@ -30,6 +31,7 @@ contract TestSign is Test {
         address signer = ecrecover(messagehash, v, r, s);
         
         assertEq(pubkey, signer);
+        // assert(z == signer);
 
         // bool x = verificationContract.verify(pubkey,"hello world");
     }
@@ -42,6 +44,5 @@ contract TestSign is Test {
 
         bytes32 ethsignedmessage = verificationContract.getEthSignedMessageHash(messagehash);
 
-        
     }
 }
