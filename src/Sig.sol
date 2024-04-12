@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.18;
 
+// To check if a message signed by a user is actually signed by the user (authenticity of signer)
+
 /** The process of verifying a signature using solidity has 4 steps
  * hash(message)
  * sign(hash(message),privateKey) | this is done offchain
